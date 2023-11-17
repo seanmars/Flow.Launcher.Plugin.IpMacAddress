@@ -25,10 +25,10 @@
         <Content Include="icon.png">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
-        <Content Include="inside.png">
+        <Content Include="local-area-network.png">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
-        <Content Include="outside.png">
+        <Content Include="global-network.png">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
     </ItemGroup>

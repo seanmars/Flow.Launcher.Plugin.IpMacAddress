@@ -6,16 +6,22 @@ using System.Net.NetworkInformation;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using Flow.Launcher.Plugin;
 
 namespace Flow.Launcher.Plugin.IpMacAddress
 {
+    /// <summary>
+    /// Plugin to show ip and mac address
+    /// </summary>
     public class IpMacAddress : IAsyncPlugin, IResultUpdated
     {
-        private const string IconInside = "inside.png";
-        private const string IconOutside = "outside.png";
+        private const string IconLocalNetwork = "local-area-network.png";
+        private const string IconGlobalNetwork = "global-network.png";
 
         private PluginInitContext _context;
+
+        /// <summary>
+        /// Event that is fired when results are updated
+        /// </summary>
         public event ResultUpdatedEventHandler ResultsUpdated;
 
         private static Func<ActionContext, bool> Action(string text)
@@ -92,8 +98,8 @@ namespace Flow.Launcher.Plugin.IpMacAddress
                     results.Add(new Result
                     {
                         Title = ipAdr,
-                        SubTitle = $"MAC: {macAdr}",
-                        IcoPath = IconInside,
+                        SubTitle = $"{nic.Name} MAC: {macAdr}",
+                        IcoPath = IconLocalNetwork,
                         Action = Action(ipAdr)
                     });
                 }
@@ -111,7 +117,7 @@ namespace Flow.Launcher.Plugin.IpMacAddress
             {
                 Title = externalIp,
                 SubTitle = "External IP Address",
-                IcoPath = IconOutside,
+                IcoPath = IconGlobalNetwork,
                 Action = Action(externalIp)
             });
 
