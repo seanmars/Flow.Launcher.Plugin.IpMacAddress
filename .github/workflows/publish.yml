@@ -30,7 +30,7 @@ jobs:
         shell: pwsh
         run: |
           dotnet publish 'Flow.Launcher.Plugin.IpMacAddress\Flow.Launcher.Plugin.IpMacAddress.csproj' -c Release -o "IpMacAddressProjects"
-          Compress-Archive -Path IpMacAddressProjects/* -DestinationPath Flow.Launcher.Plugin.IpMacAddresss.zip -Force
+          Compress-Archive -Path IpMacAddressProjects/* -DestinationPath Flow.Launcher.Plugin.IpMacAddress.zip -Force
           
       - name: Publish
         uses: softprops/action-gh-release@v1
